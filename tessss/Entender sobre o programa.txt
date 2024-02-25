@@ -1,0 +1,23 @@
+Agora, vamos explicar cada parte do código:
+
+<?php ... ?>: Isso marca o início e o fim de um bloco de código PHP dentro do arquivo HTML.
+
+if(isset($_POST['acao'])) { ... }: Isso verifica se o formulário foi submetido. Se o botão de envio do formulário (com o atributo name igual a "acao") foi pressionado, o código dentro do bloco if será executado.
+
+$arquivo = $_FILES['file'];: Isso obtém informações sobre o arquivo enviado através do formulário. O arquivo é armazenado na variável $arquivo.
+
+$arquivoNovo = explode('.', $arquivo['name']);: Isso separa o nome do arquivo em partes usando o ponto como delimitador e armazena essas partes na variável $arquivoNovo.
+
+if($arquivoNovo[sizeof($arquivoNovo)-1] != 'png' && $arquivoNovo[sizeof($arquivoNovo)-1] != 'pdf') { ... }: Isso verifica se a extensão do arquivo não é 'png' nem 'pdf'. Se a extensão não corresponder, uma mensagem de erro é exibida e o script é interrompido.
+
+echo 'Upload foi feito com sucesso';: Se a extensão do arquivo for 'png' ou 'pdf', uma mensagem de sucesso é exibida.
+
+move_uploaded_file($arquivo['tmp_name'],'uploads/'.$arquivo['name']);: Isso move o arquivo enviado para o diretório 'uploads' no servidor.
+
+<form action="" method="post" enctype="multipart/form-data"> ... </form>: Este é o formulário HTML que permite ao usuário selecionar e enviar um arquivo. O atributo action é deixado em branco para que o formulário seja enviado para a mesma página. O atributo method especifica o método de envio como POST. O atributo enctype="multipart/form-data" é usado para permitir o envio de arquivos.
+
+<input type="file" name="file" />: Este é o campo de entrada para selecionar um arquivo. O atributo name é definido como "file", que é o mesmo usado para acessar o arquivo no PHP.
+
+<input type="submit" name="acao" value="enviar" />: Este é o botão de envio do formulário. O atributo name é definido como "acao" para que possamos verificar se o formulário foi enviado com base neste nome.
+
+Espero que isso tenha esclarecido como o seu código funciona e o que cada parte faz! Se tiver mais alguma dúvida, estou à disposição para ajudar.

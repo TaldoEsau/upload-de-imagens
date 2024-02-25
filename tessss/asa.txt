@@ -1,0 +1,2 @@
+php --version
+php -S localhost:8000 (procurar o local da pasta)

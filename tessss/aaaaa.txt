@@ -1,0 +1,29 @@
+php --version
+c (procurar o local da pasta)
+
+
+<?php
+
+$iterator = new FilesystemIterator('./uploads');
+
+$imagens = glob($iterator . "/*.png");
+
+foreach ($iterator as $file) 
+{
+    echo "<div><img src='$file' alt='Imagem'></div>";
+}
+?>
+
+            OU
+
+<?php
+
+$localDasImg = "./uploads";
+
+$imagens = glob($localDasImg . "/*.png");
+
+foreach($imagens as $imagem)
+{
+    echo "<div><img src='$imagem' alt='Imagem'></div>";
+}
+?>
